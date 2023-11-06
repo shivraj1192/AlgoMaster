@@ -1,0 +1,71 @@
+{% extends 'base.html' %}
+{% load static %}
+
+
+
+{% block title %}
+<title>E-learn App</title>
+{% endblock title %}
+
+
+
+
+
+{% block style %}
+
+<style>
+    .page1
+    {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        padding: 25px;
+        margin-top: 20px;
+    }
+
+    .form-group
+    {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        
+        
+    }
+</style>
+
+{% endblock style %}
+
+
+
+
+{% block body %}
+<div class="page1" id="page1">
+    {% if error_message %}
+    <div class="alert alert-danger">
+      {{ error_message }}
+    </div>
+  {% endif %}
+<h1>Column Minima Method Form</h1>
+<form method="post">
+  {% csrf_token %}
+  {% for field in form %}
+<div class="form-group">
+    <label for="{{ field.id_for_label }}">{{ field.label }} :-</label>
+    <!-- <br> -->
+    {{ field }}
+</div>
+{% endfor %}
+  <input type="submit" value="Solve" />
+</form>
+</div>
+
+{% endblock body %}
+
+
+
+
+{% block script %}
+
+{% endblock script %}

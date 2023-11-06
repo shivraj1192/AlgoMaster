@@ -1,0 +1,110 @@
+{% extends 'base.html' %} 
+{% load static %} 
+
+{% block title %}
+<title>E-learn App</title>
+{% endblock title %} 
+
+
+
+{% block style %}
+
+<style>
+    .page1
+    {
+        /* background-color: black; */
+        width: 100vw;
+        height: 100vh;
+        display: flex;
+        justify-content: center;
+    }
+
+    .text
+    {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        padding: 25px;
+        margin-top: 20px;
+    }
+
+    .svg
+    {
+        width: 550px;
+        height: auto;
+    }
+
+    a
+    {
+        text-decoration: none;
+        
+    }
+
+    @media (max-width: 991px) {
+        .page1{
+            width: auto;
+            height: auto;
+            display: flex;
+            flex-direction: column;
+            
+        }
+
+        .svg{
+            width: 400px;
+        }
+    }
+
+</style>
+
+{% endblock style %} 
+
+
+
+
+{% block body %}
+
+<div class="page1" id="page1">
+<div class="text">
+<h1>Transportation Problem Solver</h1>
+<br><br>
+
+<h3>North West method</h3>
+<a href="/north-west-method/">north west method</a>
+
+
+
+
+
+
+    <h3>Leats Cost method</h3>
+    <a href="/least-cost-method/">least cost method</a>
+
+
+    <h3>Row minima method</h3>
+    <a href="/row-minima-method/">row minima method</a>
+
+    
+    <h3>Column minima method</h3>
+    <a href="/column-minima-method/">row minima method</a>
+
+    <h3>Vogels Approximation method</h3>
+    <a href="/vogels-approximation-method/">Vogels Approximation method</a>
+
+    
+</div>
+
+<div class="svg" id="svg">
+    <br><br>
+    <br><br>
+    <img src="{% static 'img/blog-post-animate.svg' %}" alt="###">
+</div>
+
+</div>
+
+{% endblock body %} 
+
+
+
+
+{% block script %} {% endblock script %}

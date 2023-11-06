@@ -1,0 +1,95 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}
+<title>E-learn App</title>
+{% endblock title %}
+
+{% block style %}
+<style>
+  table {
+    border-collapse: collapse;
+    width: 50%;
+  }
+
+  table, th, td {
+    border: 1px solid black;
+  }
+
+  th, td {
+    padding: 10px;
+    text-align: center;
+  }
+
+  
+    .page1
+    {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        padding: 25px;
+        margin-top: 20px;
+    }
+
+</style>
+{% endblock style %}
+
+{% block body %}
+
+<div class="page1" id="page1">
+
+<h1>Transportation Problem Results</h1>
+<h2>Entered Supply:</h2>
+<p>{{ supply }}</p>
+
+<h2>Entered Demand:</h2>
+<p>{{ demand }}</p>
+
+<h2>Entered Cost Matrix:</h2>
+<table>
+  <tr>
+    <th></th>
+    {% for j in cost_matrix.0 %}
+      {% comment %} <th>Demand {{ j }}</th> {% endcomment %}
+    {% endfor %}
+  </tr>
+  {% for row in cost_matrix %}
+    <tr>
+      {% comment %} <td>Supply {{ forloop.counter }}</td> {% endcomment %}
+      {% for cell in row %}
+        <td>{{ cell }}</td>
+      {% endfor %}
+    </tr>
+  {% endfor %}
+</table>
+
+<h2>Allocation Matrix:</h2>
+<table>
+  <tr>
+    <th></th>
+    {% for j in allocation_matrix.0 %}
+      {% comment %} <th>Demand {{ j }}</th> {% endcomment %}
+    {% endfor %}
+  </tr>
+  {% for row in allocation_matrix %}
+    <tr>
+      {% comment %} <td>Supply {{ forloop.counter }}</td> {% endcomment %}
+      {% for cell in row %}
+        <td>{{ cell }}</td>
+      {% endfor %}
+    </tr>
+  {% endfor %}
+</table>
+
+<h2>Total Cost:</h2>
+<p>{{ total_cost }}</p>
+
+<a href="/">Back to Input Form</a>
+</div>
+
+{% endblock body %}
+
+{% block script %}
+
+{% endblock script %}
